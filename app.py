@@ -29,14 +29,14 @@ def extract_text(pdf_file):
             text += page_text + "\n"
 
     return text
-
 # ==========================================
 # GENERATE INTERVIEW QUESTIONS + ANSWERS
 # ==========================================
 
 def generate_questions(resume_text, role):
-    
+
     resume_text = resume_text[:8000]
+
     prompt = f"""
     You are an expert interviewer.
 
@@ -92,11 +92,12 @@ def generate_questions(resume_text, role):
     """
 
     try:
-    response = model.generate_content(prompt)
-    return response.text
+        response = model.generate_content(prompt)
+        return response.text
 
     except Exception as e:
-    return f"Error: {str(e)}"
+        return f"Error: {str(e)}"
+
 
 # ==========================================
 # GENERATE MOCK INTERVIEW QUESTIONS
@@ -136,7 +137,6 @@ def generate_mock_questions(resume_text, role):
             questions.append(line)
 
     return questions[:3]
-
 # ==========================================
 # EVALUATE ANSWERS
 # ==========================================
@@ -170,13 +170,12 @@ def evaluate_answer(question, answer):
     Provide a concise improved answer.
     """
 
-    
     try:
-    response = model.generate_content(prompt)
-    return response.text
+        response = model.generate_content(prompt)
+        return response.text
 
     except Exception as e:
-    return f"Error: {str(e)}"
+        return f"Error: {str(e)}"
 
 # ==========================================
 # STREAMLIT PAGE SETTINGS
