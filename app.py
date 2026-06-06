@@ -35,7 +35,8 @@ def extract_text(pdf_file):
 # ==========================================
 
 def generate_questions(resume_text, role):
-
+    
+    resume_text = resume_text[:8000]
     prompt = f"""
     You are an expert interviewer.
 
