@@ -91,9 +91,12 @@ def generate_questions(resume_text, role):
     Keep answers simple and suitable for a fresher.
     """
 
+    try:
     response = model.generate_content(prompt)
-
     return response.text
+
+    except Exception as e:
+    return f"Error: {str(e)}"
 
 # ==========================================
 # GENERATE MOCK INTERVIEW QUESTIONS
@@ -167,9 +170,13 @@ def evaluate_answer(question, answer):
     Provide a concise improved answer.
     """
 
+    
+    try:
     response = model.generate_content(prompt)
-
     return response.text
+
+    except Exception as e:
+    return f"Error: {str(e)}"
 
 # ==========================================
 # STREAMLIT PAGE SETTINGS
